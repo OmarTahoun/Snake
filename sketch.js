@@ -8,12 +8,14 @@ function setup() {
   snake = new Snake();
   cols = floor(width/s);
   rows= floor(height/s);
-  frameRate(10);
+  frameRate(8);
   makeFood();
 }
 
 function draw() {
   background(120);
+  if(snake.eat())
+    makeFood();
   snake.move();
   snake.show();
 

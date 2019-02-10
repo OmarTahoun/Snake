@@ -20,4 +20,14 @@ function Snake (){
     rect(this.x, this.y, s, s);
   }
 
+  this.eat = function () {
+    var distance = dist(this.x, this.y, food.x, food.y);
+    if (distance<s-1){
+      this.length +=1;
+      return true;
+    }else{
+      return false;
+    }
+  }
+
 }
