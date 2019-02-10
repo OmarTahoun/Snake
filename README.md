@@ -1,2 +1,2 @@
 # Snake
-The snake game in browser
+### A snake game in the browser made using JavaScript
