@@ -1,4 +1,3 @@
-var s = 20;
 function Snake (){
   this.body = [];
   this.length = 0;
