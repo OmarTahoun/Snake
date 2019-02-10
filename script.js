@@ -24,7 +24,6 @@ function Snake (){
   }
 
   this.show = function() {
-    // noStroke();
     fill(255);
     for (var i = 0; i < this.body.length; i++) {
       rect(this.body[i].x, this.body[i].y, s, s);
@@ -34,7 +33,7 @@ function Snake (){
 
   this.eat = function () {
     var distance = dist(this.x, this.y, food.x, food.y);
-    if (distance<s-1){
+    if (distance<1){
       this.length +=1;
       return true;
     }else{
@@ -49,6 +48,16 @@ function Snake (){
       if (this.length >= 1) {
         this.body[this.length-1] = createVector(this.x, this.y);
       }
+  }
+
+  this.check_dead = function () {
+    for (var i = 0; i < this.body.length-1; i++) {
+      var distance = dist(this.x, this.y, this.body[i].x, this.body[i].y);
+      if(distance < 1){
+        this.length = 0;
+        this.body = [];
+      }
+    }
   }
 
 }

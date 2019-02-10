@@ -17,6 +17,7 @@ function draw() {
   if(snake.eat())
     makeFood();
     snake.grow();
+  snake.check_dead();
   snake.move();
   snake.show();
 
