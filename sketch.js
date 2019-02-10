@@ -46,6 +46,6 @@ function keyPressed() {
 
 
 function makeFood() {
-  food = createVector(random(cols), random(rows));
+  food = createVector(floor(random(cols)), floor(random(rows)));
   food.mult(s);
 }
