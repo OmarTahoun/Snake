@@ -10,13 +10,25 @@ function Snake (){
     this.x = this.x + this.xSpeed * s;
     this.y = this.y + this.ySpeed * s;
 
-    this.x = constrain(this.x, 0, width-s);
-    this.y = constrain(this.y, 0, height-s);
+    // this.x = constrain(this.x, 0, width-s);
+    // this.y = constrain(this.y, 0, height-s);
+    if (this.x <= -s)
+      this.x = width-s;
+    if (this.x >= width)
+      this.x = 0;
+    if (this.y <= -s)
+      this.y = height-s;
+    if (this.y >=height)
+      this.y = 0;
+
   }
 
   this.show = function() {
-    noStroke();
+    // noStroke();
     fill(255);
+    for (var i = 0; i < this.body.length; i++) {
+      rect(this.body[i].x, this.body[i].y, s, s);
+    }
     rect(this.x, this.y, s, s);
   }
 
@@ -28,6 +40,15 @@ function Snake (){
     }else{
       return false;
     }
+  }
+
+  this.grow = function () {
+      for (var i = 0; i < this.body.length-1; i++) {
+        this.body[i] = this.body[i+1];
+      }
+      if (this.length >= 1) {
+        this.body[this.length-1] = createVector(this.x, this.y);
+      }
   }
 
 }
