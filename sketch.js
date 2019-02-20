@@ -15,7 +15,7 @@ function preload() {
 function setup() {
   canva = createCanvas(600, 600);
   canva.position((windowWidth - width) / 1.5, (windowHeight - height) / 2);
-  win.setVolume(0.4);
+  win.setVolume(0.8);
   snake = new Snake();
   cols = floor(width/s);
   rows= floor(height/s);
