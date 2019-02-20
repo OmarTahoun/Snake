@@ -2,11 +2,12 @@ var s = 20;
 var cols;
 var rows;
 var food;
-var start;
+var start, canva;
 var running = false;
 
 function setup() {
-  createCanvas(600, 600);
+  canva = createCanvas(600, 600);
+  canva.position((windowWidth - width) / 2, (windowHeight - height) / 2);
   snake = new Snake();
   cols = floor(width/s);
   rows= floor(height/s);
