@@ -8,8 +8,8 @@ var running = false;
 
 function preload() {
   soundFormats('mp3', 'ogg');
-  lose = loadSound('dead.mp3');
-  win = loadSound('win.mp3');
+  lose = loadSound('sounds/dead.mp3');
+  win = loadSound('sounds/win.mp3');
 }
 
 function setup() {
