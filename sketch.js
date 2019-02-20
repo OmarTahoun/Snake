@@ -2,25 +2,33 @@ var s = 20;
 var cols;
 var rows;
 var food;
+var start;
+var running = false;
 
 function setup() {
   createCanvas(600, 600);
   snake = new Snake();
   cols = floor(width/s);
   rows= floor(height/s);
+  start = select('.game');
+  console.log(start);
+  start.mousePressed(()=>{
+    running = true;
+  });
   frameRate(8);
   makeFood();
 }
 
 function draw() {
   background(120);
-  if(snake.eat())
-    makeFood();
-    snake.grow();
-  snake.check_dead();
-  snake.move();
-  snake.show();
-
+  if (running) {
+    if(snake.eat())
+      makeFood();
+      snake.grow();
+    snake.check_dead();
+    snake.move();
+    snake.show();
+  }
   fill(255, 0, 40);
   rect(food.x, food.y, s, s);
 }
