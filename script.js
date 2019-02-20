@@ -35,6 +35,7 @@ function Snake (){
     var distance = dist(this.x, this.y, food.x, food.y);
     if (distance<1){
       this.length +=1;
+      score.elt.innerHTML = parseInt(score.elt.innerHTML) +1;
       return true;
     }else{
       return false;
@@ -56,6 +57,7 @@ function Snake (){
       if(distance < 1){
         this.length = 0;
         this.body = [];
+        score.elt.innerHTML = 0;
       }
     }
   }

@@ -2,7 +2,7 @@ var s = 20;
 var cols;
 var rows;
 var food;
-var start, canva;
+var start, canva,score;
 var running = false;
 
 function setup() {
@@ -12,10 +12,10 @@ function setup() {
   cols = floor(width/s);
   rows= floor(height/s);
   start = select('.game');
-  console.log(start);
   start.mousePressed(()=>{
     running = !running;
   });
+  score = select('.score');
   frameRate(8);
   makeFood();
 }
