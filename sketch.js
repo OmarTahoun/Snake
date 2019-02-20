@@ -2,7 +2,7 @@ var s = 20;
 var cols;
 var rows;
 var food;
-var start, canva,score;
+var start, canva,score, score_text;
 var running = false;
 
 
@@ -14,16 +14,21 @@ function preload() {
 
 function setup() {
   canva = createCanvas(600, 600);
-  canva.position((windowWidth - width) / 2, (windowHeight - height) / 2);
+  canva.position((windowWidth - width) / 1.5, (windowHeight - height) / 2);
   win.setVolume(0.4);
   snake = new Snake();
   cols = floor(width/s);
   rows= floor(height/s);
+
+  score = select('.score');
+  score_text  = select('h1');
+  score_text.position(250, 200);
+
   start = select('.game');
+  start.position(score_text.x, score_text.y*2);
   start.mousePressed(()=>{
     running = !running;
   });
-  score = select('.score');
   frameRate(8);
   makeFood();
 }
