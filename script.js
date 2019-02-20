@@ -34,6 +34,7 @@ function Snake (){
   this.eat = function () {
     var distance = dist(this.x, this.y, food.x, food.y);
     if (distance<1){
+      mySound.play();
       this.length +=1;
       score.elt.innerHTML = parseInt(score.elt.innerHTML) +1;
       return true;

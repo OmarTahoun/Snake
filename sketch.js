@@ -5,9 +5,16 @@ var food;
 var start, canva,score;
 var running = false;
 
+
+function preload() {
+  soundFormats('mp3', 'ogg');
+  mySound = loadSound('win1.mp3');
+}
+
 function setup() {
   canva = createCanvas(600, 600);
   canva.position((windowWidth - width) / 2, (windowHeight - height) / 2);
+  mySound.setVolume(0.2);
   snake = new Snake();
   cols = floor(width/s);
   rows= floor(height/s);
