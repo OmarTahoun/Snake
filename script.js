@@ -56,6 +56,7 @@ function Snake (){
     for (var i = 0; i < this.body.length-1; i++) {
       var distance = dist(this.x, this.y, this.body[i].x, this.body[i].y);
       if(distance < 1){
+        running = !running;
         this.length = 0;
         this.body = [];
         score.elt.innerHTML = 0;
