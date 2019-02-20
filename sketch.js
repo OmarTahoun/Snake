@@ -13,7 +13,7 @@ function setup() {
   start = select('.game');
   console.log(start);
   start.mousePressed(()=>{
-    running = true;
+    running = !running;
   });
   frameRate(8);
   makeFood();
@@ -29,6 +29,7 @@ function draw() {
     snake.move();
     snake.show();
   }
+  snake.show();
   fill(255, 0, 40);
   rect(food.x, food.y, s, s);
 }
