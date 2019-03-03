@@ -50,25 +50,99 @@ function draw() {
 
 
 function keyPressed() {
-  if (keyCode === UP_ARROW){
-    snake.xSpeed = 0;
-    snake.ySpeed = -1;
+  var x,y;
+  x = snake.xSpeed;
+  y = snake.ySpeed;
+
+  // Stoping the snake from going left if it's walking right
+  if (x == 1) {
+    if (keyCode === UP_ARROW){
+      snake.xSpeed = 0;
+      snake.ySpeed = -1;
+    }
+
+    if (keyCode === DOWN_ARROW){
+      snake.xSpeed = 0;
+      snake.ySpeed = 1;
+    }
+
+    if (keyCode === RIGHT_ARROW){
+      snake.xSpeed = 1;
+      snake.ySpeed = 0;
+    }
+
+    if (keyCode === LEFT_ARROW){
+      return 0;
+    }
   }
 
-  if (keyCode === DOWN_ARROW){
-    snake.xSpeed = 0;
-    snake.ySpeed = 1;
+  // Stoping the snake from going right if it's walking left
+  if (x == -1) {
+    if (keyCode === UP_ARROW){
+      snake.xSpeed = 0;
+      snake.ySpeed = -1;
+    }
+
+    if (keyCode === DOWN_ARROW){
+      snake.xSpeed = 0;
+      snake.ySpeed = 1;
+    }
+
+    if (keyCode === RIGHT_ARROW){
+      return 0;
+    }
+
+    if (keyCode === LEFT_ARROW){
+      snake.xSpeed = -1;
+      snake.ySpeed = 0;
+    }
   }
 
-  if (keyCode === RIGHT_ARROW){
-    snake.xSpeed = 1;
-    snake.ySpeed = 0;
+
+  // Stoping the snake from going down if it's walking up
+  if (y == -1) {
+    if (keyCode === UP_ARROW){
+      snake.xSpeed = 0;
+      snake.ySpeed = -1;
+    }
+
+    if (keyCode === DOWN_ARROW){
+      return 0;
+    }
+
+    if (keyCode === RIGHT_ARROW){
+      snake.xSpeed = 1;
+      snake.ySpeed = 0;
+    }
+
+    if (keyCode === LEFT_ARROW){
+      snake.xSpeed = -1;
+      snake.ySpeed = 0;
+    }
   }
 
-  if (keyCode === LEFT_ARROW){
-    snake.xSpeed = -1;
-    snake.ySpeed = 0;
+  // Stoping the snake from going up if it's walking down
+  if (y == 1) {
+    if (keyCode === UP_ARROW){
+      return 0;
+    }
+
+    if (keyCode === DOWN_ARROW){
+      snake.xSpeed = 0;
+      snake.ySpeed = 1;
+    }
+
+    if (keyCode === RIGHT_ARROW){
+      snake.xSpeed = 1;
+      snake.ySpeed = 0;
+    }
+
+    if (keyCode === LEFT_ARROW){
+      snake.xSpeed = -1;
+      snake.ySpeed = 0;
+    }
   }
+
 }
 
 
