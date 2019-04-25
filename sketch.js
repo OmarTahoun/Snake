@@ -35,9 +35,13 @@ function setup() {
 
 function draw() {
   background(120);
+  frameRate(speed);
   if (running) {
-    if(snake.eat())
+    if(snake.eat()){
+      if(parseInt(score.elt.innerHTML) % 10 == 0)
+        speed += 8;
       makeFood();
+    }
       snake.grow();
     snake.check_dead();
     snake.move();
