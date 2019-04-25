@@ -4,7 +4,7 @@ var rows;
 var food;
 var start, canva,score, score_text;
 var running = false;
-
+var speed = 8;
 
 function preload() {
   soundFormats('mp3', 'ogg');
@@ -29,7 +29,7 @@ function setup() {
   start.mousePressed(()=>{
     running = !running;
   });
-  frameRate(8);
+  frameRate(speed);
   makeFood();
 }
 
