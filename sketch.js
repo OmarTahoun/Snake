@@ -2,7 +2,7 @@ var s = 20;
 var cols;
 var rows;
 var food;
-var start, canva,score, score_text;
+var start, canva,score, score_text, best_score, best_score_text;
 var running = false;
 var speed = 8;
 
@@ -24,11 +24,18 @@ function setup() {
   score_text  = select('h1');
   score_text.position(250, 200);
 
+  best_score = select('.best-score');
+  best_score_text = select('h3');
+  best_score_text.position(score_text.x, score_text.y+40);
+
   start = select('.game');
   start.position(score_text.x, score_text.y*2);
   start.mousePressed(()=>{
     running = !running;
   });
+
+  if (!localStorage.best_score)
+    localStorage.setItem("best_score", 0);
   frameRate(speed);
   makeFood();
 }
@@ -50,6 +57,7 @@ function draw() {
   snake.show();
   fill(255, 0, 40);
   rect(food.x, food.y, s, s);
+  best_score.elt.innerHTML = localStorage.best_score;
 }
 
 

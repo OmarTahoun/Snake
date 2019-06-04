@@ -60,6 +60,10 @@ function Snake (){
         running = !running;
         this.length = 0;
         this.body = [];
+        if (parseInt(score.elt.innerHTML) >= localStorage.best_score){
+          localStorage.best_score = parseInt(score.elt.innerHTML);
+          console.log(localStorage.best_score);
+        }
         score.elt.innerHTML = 0;
       }
     }
