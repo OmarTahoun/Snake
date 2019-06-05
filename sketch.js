@@ -10,6 +10,7 @@ function preload() {
   soundFormats('mp3', 'ogg');
   lose = loadSound('sounds/dead.mp3');
   win = loadSound('sounds/win.mp3');
+  speed_up = loadSound("sounds/speed_up.wav");
 }
 
 function setup() {
@@ -45,8 +46,10 @@ function draw() {
   frameRate(speed);
   if (running) {
     if(snake.eat()){
-      if(parseInt(score.elt.innerHTML) % 10 == 0)
+      if(parseInt(score.elt.innerHTML) % 10 == 0){
+        speed_up.play();
         speed += 8;
+      }
       makeFood();
     }
       snake.grow();
