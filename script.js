@@ -65,6 +65,7 @@ function Snake (){
           console.log(localStorage.best_score);
         }
         score.elt.innerHTML = 0;
+        speed = 8;
       }
     }
   }
